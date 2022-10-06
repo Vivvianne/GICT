@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      header{
+          
+          background-color:rgb(200, 205, 186);
+      } body{
+          padding: 0;
+          margin: 0;
+      }h1{
+          color: black;
+          text-align: center;
+
+      }nav{
+          padding: 15px;
+          background-color: rgb(106, 116, 120);
+      }a{
+          color: white;
+          padding: 15px;
+          text-decoration: none;
+
+      }footer{
+          background-color: rgb(200, 205, 186);
+          text-align: center;
+          color: black;
+      }hoover{
+          background-color: black;
+          color: skyblue;
+      }table{
+        width: 50%;
+        margin: 2rem auto;
+      }
+  </style>
+</head>
+</head>
+<body>
+  <header>
+    <h1>GICT Project</h1>
+    <nav>
+        <a href="details.html">Personal Details</a>
+        <a href="list.html">List</a>
+    </nav>
+</header>
+    
+    <main class="List">
+      <h1>List</h1>
+      <section class="welcome">
+        <h1>List Items</h1>
+
+        <table border="2" id="main-table">
+          <thead>
+            <tr>
+              <td>Column 1</td>
+              <td>Column 2</td>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </section>
+      </main>
+
+      
+    <footer>
+      <p>contact us</p>
+      <p>follow</p>
+  </footer>
+
+  <script>
+    var tableBody = document.getElementById("table-body");
+
+    var url = "http://developers.gictsystems.com/api/dummy/items/";
+    var token = "ALDJAK23423JKSLAJAF23423J23SAD";
+    var bearer = "Bearer " + token;
+
+    // get request to the url
+    fetch(url, {
+      method: "GET",
+      credentials: "omit",
+      headers: {
+        Authorization: bearer,
+        "Content-Type": "application/json",
+      },
+    }).then((resp) => {
+      var items = JSON.parse(resp);
+
+      console.log(items);
+    });
+
+    // create a table and populate with data
+    // row
+    for (var i = 0; i < 4; i++) {
+      const row = document.createElement("tr");
+      //   column
+      for (var j = 0; j < 2; j++) {
+        const cell = document.createElement("td");
+        const text = document.createTextNode(`cell in row ${i}, column${j}`);
+        cell.appendChild(text);
+        row.appendChild(cell);
+      }
+      tableBody.appendChild(row);
+    }
+  </script>
+    
+</body>
+</html>
