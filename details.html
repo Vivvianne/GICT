@@ -49,19 +49,23 @@
     <main class="personal-details">
       <h1>Personal Details</h1>
 
-      <form action="/auth/signup" method="post" class="signup-form">
-        <label for="name">Name: </label>
-        <input type="name" name="name" id="name" />
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email" />
-        <label for="phone">Phone Number: </label>
-        <input type="phone" name="phone" id="phone" />
-        <label for="address">Address: </label>
-        <input type="address" name="address" id="address" />
+       <main>
+        <section class="details-form">
+          <h2>Enter the information needed</h2>
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone" />
+          <label for="address">Address</label>
+          <input type="text" name="address" id="address" />
+          <input type="submit" id="submit-btn" value="Submit" />
+        </section>
+      </main>
       
-        <button type="submit">Submit</button>
 
-      </form>
+     
       </main>
 
       <script>
